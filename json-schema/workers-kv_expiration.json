@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_expiration.json",
+  "title": "Expiration",
+  "description": "Expires the key at a certain time, measured in number of seconds since the UNIX epoch.",
+  "example": 1578435000.0,
+  "type": "number"
+}

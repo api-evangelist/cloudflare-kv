@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_value.json",
+  "title": "Value",
+  "anyOf": [
+    {
+      "type": "string"
+    },
+    {
+      "format": "binary",
+      "type": "string"
+    }
+  ],
+  "description": "A byte sequence to be stored, up to 25 MiB in length.",
+  "example": "Some Value"
+}

@@ -1,0 +1,153 @@
+[
+  {
+    "operationId": "workers-kv-namespace-list-namespaces",
+    "method": "GET",
+    "path": "/accounts/{account_id}/storage/kv/namespaces",
+    "summary": "List Namespaces",
+    "parameters": {
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353",
+      "page": "example_page",
+      "per_page": "example_per_page",
+      "order": "example_order",
+      "direction": "example_direction"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-create-a-namespace",
+    "method": "POST",
+    "path": "/accounts/{account_id}/storage/kv/namespaces",
+    "summary": "Create a Namespace",
+    "parameters": {
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-remove-a-namespace",
+    "method": "DELETE",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}",
+    "summary": "Remove a Namespace",
+    "parameters": {
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-get-a-namespace",
+    "method": "GET",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}",
+    "summary": "Get a Namespace",
+    "parameters": {
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-rename-a-namespace",
+    "method": "PUT",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}",
+    "summary": "Rename a Namespace",
+    "parameters": {
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-delete-multiple-key-value-pairs-deprecated",
+    "method": "DELETE",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk",
+    "summary": "Delete multiple key-value pairs",
+    "parameters": {
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-write-multiple-key-value-pairs",
+    "method": "PUT",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk",
+    "summary": "Write multiple key-value pairs",
+    "parameters": {
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-delete-multiple-key-value-pairs",
+    "method": "POST",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete",
+    "summary": "Delete multiple key-value pairs",
+    "parameters": {
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-get-multiple-key-value-pairs",
+    "method": "POST",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get",
+    "summary": "Get multiple key-value pairs",
+    "parameters": {
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-list-a-namespace'-s-keys",
+    "method": "GET",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys",
+    "summary": "List a Namespace's Keys",
+    "parameters": {
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353",
+      "limit": "example_limit",
+      "prefix": "example_prefix",
+      "cursor": "example_cursor"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-read-the-metadata-for-a-key",
+    "method": "GET",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}",
+    "summary": "Read the metadata for a key",
+    "parameters": {
+      "key_name": "My-Key",
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-delete-key-value-pair",
+    "method": "DELETE",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}",
+    "summary": "Delete key-value pair",
+    "parameters": {
+      "key_name": "My-Key",
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-read-key-value-pair",
+    "method": "GET",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}",
+    "summary": "Read key-value pair",
+    "parameters": {
+      "key_name": "My-Key",
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353"
+    }
+  },
+  {
+    "operationId": "workers-kv-namespace-write-key-value-pair-with-metadata",
+    "method": "PUT",
+    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}",
+    "summary": "Write key-value pair with optional metadata",
+    "parameters": {
+      "key_name": "My-Key",
+      "namespace_id": "0f2ac74b498b48028cb68387c421e279",
+      "account_id": "023e105f4ecef8ad9ca31a8372d0c353",
+      "expiration": "example_expiration",
+      "expiration_ttl": "example_expiration_ttl"
+    }
+  }
+]

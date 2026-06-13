@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_key_name_bulk.json",
+  "title": "Key Name Bulk",
+  "description": "A key's name. The name may be at most 512 bytes. All printable, non-whitespace characters are valid.",
+  "example": "My-Key",
+  "maxLength": 512,
+  "type": "string"
+}

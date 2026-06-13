@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_bulk_delete.json",
+  "title": "Bulk Delete",
+  "items": {
+    "$ref": "#/components/schemas/workers-kv_key_name_bulk"
+  },
+  "type": "array"
+}

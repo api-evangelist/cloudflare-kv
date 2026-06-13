@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_bulk-get-result-with-metadata.json",
+  "title": "Bulk Get Result With Metadata",
+  "properties": {
+    "values": {
+      "additionalProperties": {
+        "nullable": true,
+        "properties": {
+          "expiration": {
+            "$ref": "#/components/schemas/workers-kv_expiration"
+          },
+          "metadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/workers-kv_any"
+              },
+              {
+                "description": "The metadata associated with the key."
+              }
+            ]
+          },
+          "value": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/workers-kv_any"
+              },
+              {
+                "description": "The value associated with the key."
+              }
+            ]
+          }
+        },
+        "required": [
+          "value",
+          "metadata"
+        ],
+        "type": "object"
+      },
+      "description": "Requested keys are paired with their values and metadata in an object.",
+      "example": {
+        "key1": {
+          "expiration": 1577836800.0,
+          "metadata": {
+            "someMetadataKey": "someMetadataValue"
+          },
+          "value": "value1"
+        },
+        "key2": {
+          "metadata": {
+            "anotherKey": "anotherValue"
+          },
+          "value": "value2"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

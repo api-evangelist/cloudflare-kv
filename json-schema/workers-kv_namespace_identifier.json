@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_namespace_identifier.json",
+  "title": "Namespace Identifier",
+  "description": "Namespace identifier tag.",
+  "example": "0f2ac74b498b48028cb68387c421e279",
+  "maxLength": 32,
+  "readOnly": true,
+  "type": "string",
+  "x-auditable": true
+}

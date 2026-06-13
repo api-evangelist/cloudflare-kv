@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_bulk-get-result.json",
+  "title": "Bulk Get Result",
+  "properties": {
+    "values": {
+      "additionalProperties": {
+        "description": "The value associated with the key.",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        ]
+      },
+      "description": "Requested keys are paired with their values in an object.",
+      "example": {
+        "key1": "value1",
+        "key2": "value2"
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

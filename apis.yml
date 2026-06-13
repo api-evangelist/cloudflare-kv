@@ -46,6 +46,8 @@ apis:
         url: https://developers.cloudflare.com/kv/
       - type: OpenAPI
         url: https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml
+      - type: OpenAPI
+        url: openapi/cloudflare-kv-rest-api-openapi.yml
 common:
   - type: Website
     url: https://www.cloudflare.com/products/kv/

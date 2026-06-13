@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_api-response-common-no-result.json",
+  "title": "Api Response Common No Result",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/workers-kv_api-response-common"
+    },
+    {
+      "properties": {
+        "result": {
+          "nullable": true,
+          "type": "object",
+          "x-stainless-empty-object": true
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

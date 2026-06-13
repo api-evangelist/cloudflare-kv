@@ -1,0 +1,123 @@
+vocabulary:
+  name: Cloudflare Workers KV Vocabulary
+  description: >
+    Domain terms and concepts used in the Cloudflare Workers KV REST API,
+    covering namespaces, keys, values, metadata, bulk operations, and
+    expiration semantics on Cloudflare's global edge network.
+  terms:
+    - term: namespace
+      definition: >
+        A logical container for key-value pairs within an account. Each
+        namespace has a unique identifier and title and must be bound to
+        a Worker to be accessed via bindings, or queried directly via the
+        REST API using the namespace_id.
+      aliases:
+        - kv namespace
+        - namespace_id
+
+    - term: key
+      definition: >
+        A UTF-8 string up to 512 bytes used to identify a stored value
+        within a namespace. Keys are case-sensitive and can include any
+        printable characters.
+      aliases:
+        - key_name
+        - key name
+
+    - term: value
+      definition: >
+        A byte sequence up to 25 MiB in length stored against a key in
+        a KV namespace. Values are returned as raw bytes and can represent
+        text, JSON, binary data, or any other format.
+      aliases:
+        - kv value
+
+    - term: metadata
+      definition: >
+        Arbitrary JSON (up to 1024 bytes) associated with a key-value pair.
+        Metadata is returned separately from the value and can be used to
+        store content-type hints, versioning information, or application data.
+      aliases:
+        - key metadata
+        - list_metadata
+
+    - term: expiration
+      definition: >
+        A Unix timestamp (seconds since epoch) at or after which a key-value
+        pair is considered expired and will be deleted from the namespace.
+        Mutually exclusive with expiration_ttl.
+      aliases:
+        - expiration timestamp
+
+    - term: expiration_ttl
+      definition: >
+        Time-to-live in seconds from the current time after which a key-value
+        pair expires. Must be at least 60 seconds. Mutually exclusive with
+        the absolute expiration field.
+      aliases:
+        - ttl
+        - time-to-live
+
+    - term: bulk operation
+      definition: >
+        A single API call that reads, writes, or deletes multiple key-value
+        pairs in one request. Write bulk accepts up to 10,000 pairs; bulk
+        delete accepts a list of key names; bulk get returns values for a
+        list of keys.
+      aliases:
+        - bulk write
+        - bulk delete
+        - bulk get
+
+    - term: cursor
+      definition: >
+        An opaque pagination token returned by list operations (namespaces,
+        keys) when the result set is truncated. Pass the cursor value as a
+        query parameter in the next request to retrieve the subsequent page.
+      aliases:
+        - pagination cursor
+        - list cursor
+
+    - term: account_id
+      definition: >
+        The unique Cloudflare account identifier (32-character hex string)
+        that scopes all KV REST API requests. Found in the Cloudflare
+        dashboard under Account > Overview.
+      aliases:
+        - account identifier
+
+    - term: namespace_id
+      definition: >
+        The unique identifier for a KV namespace (32-character hex string).
+        Returned when a namespace is created and used as a path parameter
+        for all namespace-scoped operations.
+      aliases:
+        - namespace identifier
+
+    - term: result_info
+      definition: >
+        A pagination metadata object returned by list operations containing
+        count, cursor, page, per_page, and total_count fields.
+      aliases:
+        - pagination info
+
+    - term: eventual consistency
+      definition: >
+        The consistency model used by Workers KV. Writes are propagated
+        globally within 60 seconds. Reads from the nearest edge location
+        may briefly return stale values immediately after a write.
+
+    - term: read-after-write consistency
+      definition: >
+        Within a single Worker invocation, a write followed by a read of
+        the same key within the same isolate is guaranteed to reflect the
+        write, even before global propagation completes.
+
+    - term: binding
+      definition: >
+        A Worker environment variable of type KV_NAMESPACE that provides
+        in-Worker access to a KV namespace without using the REST API.
+        Defined in wrangler.toml as [[kv_namespaces]].
+      aliases:
+        - kv binding
+        - namespace binding

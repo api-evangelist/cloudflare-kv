@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_cursor_result_info.json",
+  "title": "Cursor Result Info",
+  "properties": {
+    "count": {
+      "description": "Total results returned based on your list parameters.",
+      "example": 1,
+      "type": "number"
+    },
+    "cursor": {
+      "$ref": "#/components/schemas/workers-kv_cursor"
+    }
+  },
+  "type": "object"
+}

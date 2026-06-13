@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_messages.json",
+  "title": "Messages",
+  "example": [],
+  "items": {
+    "properties": {
+      "code": {
+        "minimum": 1000,
+        "type": "integer"
+      },
+      "message": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "code",
+      "message"
+    ],
+    "type": "object"
+  },
+  "type": "array",
+  "uniqueItems": true
+}

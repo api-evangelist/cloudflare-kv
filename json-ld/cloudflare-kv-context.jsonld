@@ -1,0 +1,94 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "kv": "https://developers.cloudflare.com/kv/api/",
+    "cf": "https://api.cloudflare.com/client/v4/",
+
+    "namespace": {
+      "@id": "kv:namespace",
+      "@type": "@id"
+    },
+    "namespace_id": {
+      "@id": "kv:namespaceId",
+      "@type": "xsd:string"
+    },
+    "namespace_title": {
+      "@id": "kv:namespaceTitle",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "kv:key",
+      "@type": "xsd:string"
+    },
+    "key_name": {
+      "@id": "kv:keyName",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "kv:value"
+    },
+    "metadata": {
+      "@id": "kv:metadata"
+    },
+    "expiration": {
+      "@id": "kv:expiration",
+      "@type": "xsd:integer"
+    },
+    "expiration_ttl": {
+      "@id": "kv:expirationTtl",
+      "@type": "xsd:integer"
+    },
+    "cursor": {
+      "@id": "kv:cursor",
+      "@type": "xsd:string"
+    },
+    "account_id": {
+      "@id": "cf:accountId",
+      "@type": "xsd:string"
+    },
+    "bulk_write": {
+      "@id": "kv:bulkWrite"
+    },
+    "bulk_delete": {
+      "@id": "kv:bulkDelete"
+    },
+    "bulk_get": {
+      "@id": "kv:bulkGet"
+    },
+    "result": {
+      "@id": "schema:result"
+    },
+    "result_info": {
+      "@id": "kv:resultInfo"
+    },
+    "count": {
+      "@id": "schema:itemCount",
+      "@type": "xsd:integer"
+    },
+    "page": {
+      "@id": "schema:pageNumber",
+      "@type": "xsd:integer"
+    },
+    "per_page": {
+      "@id": "schema:pageSize",
+      "@type": "xsd:integer"
+    },
+    "total_count": {
+      "@id": "schema:totalItems",
+      "@type": "xsd:integer"
+    },
+    "success": {
+      "@id": "schema:Boolean"
+    },
+    "errors": {
+      "@id": "schema:error",
+      "@container": "@list"
+    },
+    "messages": {
+      "@id": "schema:message",
+      "@container": "@list"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}

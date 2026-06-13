@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_any.json",
+  "title": "Any",
+  "anyOf": [
+    {
+      "type": "string"
+    },
+    {
+      "type": "number"
+    },
+    {
+      "type": "integer"
+    },
+    {
+      "type": "boolean"
+    },
+    {
+      "additionalProperties": true,
+      "nullable": true,
+      "type": "object"
+    },
+    {
+      "items": {
+        "$ref": "#/components/schemas/workers-kv_any"
+      },
+      "type": "array"
+    }
+  ],
+  "x-stainless-override-schema": {
+    "type": "unknown"
+  }
+}

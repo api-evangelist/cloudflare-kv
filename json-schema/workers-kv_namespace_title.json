@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_namespace_title.json",
+  "title": "Namespace Title",
+  "description": "A human-readable string name for a Namespace.",
+  "example": "My Own Namespace",
+  "maxLength": 512,
+  "type": "string",
+  "x-auditable": true
+}

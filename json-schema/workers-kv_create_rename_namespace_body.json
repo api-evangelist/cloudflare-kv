@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_create_rename_namespace_body.json",
+  "title": "Create Rename Namespace Body",
+  "properties": {
+    "title": {
+      "$ref": "#/components/schemas/workers-kv_namespace_title"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "type": "object"
+}

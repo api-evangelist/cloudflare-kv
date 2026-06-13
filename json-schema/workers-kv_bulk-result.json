@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_bulk-result.json",
+  "title": "Bulk Result",
+  "properties": {
+    "successful_key_count": {
+      "description": "Number of keys successfully updated.",
+      "example": 100,
+      "type": "number"
+    },
+    "unsuccessful_keys": {
+      "description": "Name of the keys that failed to be fully updated. They should be retried.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

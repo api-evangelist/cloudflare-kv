@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_list_metadata.json",
+  "title": "List Metadata",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/workers-kv_any"
+    },
+    {
+      "description": "Arbitrary JSON that is associated with a key.",
+      "example": {
+        "someMetadataKey": "someMetadataValue"
+      }
+    }
+  ]
+}

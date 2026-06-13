@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cloudflare-kv/json-schema/workers-kv_expiration_ttl.json",
+  "title": "Expiration Ttl",
+  "description": "Expires the key after a number of seconds. Must be at least 60.",
+  "example": 300,
+  "minimum": 60,
+  "type": "number"
+}
