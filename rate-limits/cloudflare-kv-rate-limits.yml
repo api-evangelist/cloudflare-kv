@@ -1,0 +1,176 @@
+specification: API Commons Rate Limits
+specificationVersion: "0.1"
+name: Cloudflare KV Rate Limits
+description: >
+  Cloudflare Workers KV enforces rate limits at the operation level (read,
+  write, delete, list) with distinct thresholds for Free and Paid plans, plus
+  a hard per-key write rate limit that applies to both tiers. REST API calls
+  are additionally subject to Cloudflare's global REST API rate limits.
+url: https://developers.cloudflare.com/kv/platform/limits/
+rateLimits:
+
+  - name: Key reads — Free plan
+    description: Maximum key reads allowed per day on the Free plan.
+    limit: 100000
+    unit: reads
+    period: day
+    scope: account
+    plan: Free
+
+  - name: Key writes (different keys) — Free plan
+    description: Maximum writes to distinct keys per day on the Free plan.
+    limit: 1000
+    unit: writes
+    period: day
+    scope: account
+    plan: Free
+
+  - name: Key deletes — Free plan
+    description: Maximum key deletes per day on the Free plan.
+    limit: 1000
+    unit: deletes
+    period: day
+    scope: account
+    plan: Free
+
+  - name: List requests — Free plan
+    description: Maximum list requests per day on the Free plan.
+    limit: 1000
+    unit: requests
+    period: day
+    scope: account
+    plan: Free
+
+  - name: Storage — Free plan
+    description: Total KV storage per account on the Free plan.
+    limit: 1
+    unit: GB
+    scope: account
+    plan: Free
+
+  - name: Key reads — Paid plan (included)
+    description: Key reads included per month before overage charges apply.
+    limit: 10000000
+    unit: reads
+    period: month
+    scope: account
+    plan: Paid
+
+  - name: Key writes (different keys) — Paid plan (included)
+    description: Key writes to distinct keys included per month.
+    limit: 1000000
+    unit: writes
+    period: month
+    scope: account
+    plan: Paid
+
+  - name: Key deletes — Paid plan (included)
+    description: Key deletes included per month.
+    limit: 1000000
+    unit: deletes
+    period: month
+    scope: account
+    plan: Paid
+
+  - name: List requests — Paid plan (included)
+    description: List requests included per month.
+    limit: 1000000
+    unit: requests
+    period: month
+    scope: account
+    plan: Paid
+
+  - name: Write rate to same key
+    description: >
+      Maximum write rate to the same key. Applies to both Free and Paid plans.
+      Exceeding this rate for a single key may result in writes being dropped
+      or serialized.
+    limit: 1
+    unit: writes per second
+    scope: key
+    plan: All
+
+  - name: Worker operations per invocation
+    description: >
+      Maximum total operations to external services (including KV reads, writes,
+      deletes, and lists) within a single Worker invocation.
+    limit: 1000
+    unit: operations
+    scope: invocation
+    plan: All
+
+  - name: Namespaces per account
+    description: Maximum number of KV namespaces per Cloudflare account.
+    limit: 1000
+    unit: namespaces
+    scope: account
+    plan: All
+
+  - name: Bulk write batch size
+    description: Maximum number of key-value pairs per bulk write request.
+    limit: 10000
+    unit: pairs
+    scope: request
+    plan: All
+
+  - name: Bulk write payload size
+    description: Maximum payload size for a single bulk write request.
+    limit: 100
+    unit: MB
+    scope: request
+    plan: All
+
+  - name: Bulk get batch size
+    description: Maximum number of KV pairs retrievable per bulk get request.
+    limit: 100
+    unit: pairs
+    scope: request
+    plan: All
+
+  - name: Bulk delete batch size
+    description: Maximum number of key-value pairs per bulk delete request.
+    limit: 10000
+    unit: pairs
+    scope: request
+    plan: All
+
+  - name: Value maximum size
+    description: Maximum size of a single KV value.
+    limit: 25
+    unit: MiB
+    scope: value
+    plan: All
+
+  - name: Key maximum size
+    description: Maximum byte length of a KV key name.
+    limit: 512
+    unit: bytes
+    scope: key
+    plan: All
+
+  - name: Key metadata maximum size
+    description: Maximum byte length of metadata associated with a KV key.
+    limit: 1024
+    unit: bytes
+    scope: key
+    plan: All
+
+  - name: Minimum cache TTL
+    description: Minimum time-to-live for cached KV reads in Workers.
+    limit: 30
+    unit: seconds
+    scope: value
+    plan: All
+
+  - name: Minimum expiration TTL
+    description: >
+      Minimum TTL that can be set when writing a key with expiration enabled.
+    limit: 60
+    unit: seconds
+    scope: value
+    plan: All
+
+notes:
+  - REST API calls to Cloudflare follow global Cloudflare REST API rate limits in addition to KV-specific limits.
+  - Free plan daily limits reset at 00:00 UTC.
+  - Paid plan monthly inclusions reset at the start of each billing period.

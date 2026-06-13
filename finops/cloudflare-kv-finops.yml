@@ -1,0 +1,162 @@
+specification: FinOps Framework
+specificationVersion: "1.0"
+name: Cloudflare KV FinOps
+description: >
+  FinOps guidance for managing Cloudflare Workers KV costs aligned with the
+  FinOps Foundation FOCUS framework. KV costs are composed of operation charges
+  (reads, writes, deletes, list requests) and storage. Understanding usage
+  patterns and applying cost-optimization techniques can significantly reduce
+  spend, particularly for write-heavy workloads where Class A operations cost
+  10x more than reads.
+url: https://developers.cloudflare.com/kv/platform/pricing/
+
+costDimensions:
+  - name: Key Reads
+    description: >
+      Charged per key read after the monthly inclusion (10M for Paid).
+      Bulk reads are billed per key returned, not per request.
+    unitPrice: 0.50
+    priceCurrency: USD
+    unit: per million reads
+    inclusion:
+      paid: 10000000
+      free: 100000 per day
+    notes: Unsuccessful reads (null/404 responses) count as billable reads.
+
+  - name: Key Writes
+    description: >
+      Charged per key write after the monthly inclusion (1M for Paid).
+      Class A operation — significantly more expensive than reads.
+    unitPrice: 5.00
+    priceCurrency: USD
+    unit: per million writes
+    inclusion:
+      paid: 1000000
+      free: 1000 per day
+
+  - name: Key Deletes
+    description: >
+      Charged per key delete after the monthly inclusion (1M for Paid).
+      Priced the same as writes (Class A operations).
+    unitPrice: 5.00
+    priceCurrency: USD
+    unit: per million deletes
+    inclusion:
+      paid: 1000000
+      free: 1000 per day
+
+  - name: List Requests
+    description: >
+      Charged per list request after the monthly inclusion (1M for Paid).
+      List operations are Class A and priced the same as writes.
+    unitPrice: 5.00
+    priceCurrency: USD
+    unit: per million list requests
+    inclusion:
+      paid: 1000000
+      free: 1000 per day
+
+  - name: Storage
+    description: >
+      Charged per GB-month beyond the 1 GB included. Storage costs are
+      relatively low compared to operation costs for most workloads.
+    unitPrice: 0.50
+    priceCurrency: USD
+    unit: per GB-month
+    inclusion:
+      paid: 1 GB
+      free: 1 GB
+
+  - name: Workers Paid Base Fee
+    description: >
+      Workers KV Paid plan requires an active Workers Paid subscription at
+      $5/month. This base fee includes 10M Worker requests and 30M CPU-ms
+      and is not specific to KV.
+    unitPrice: 5.00
+    priceCurrency: USD
+    unit: per month (base)
+
+costOptimization:
+  - principle: Minimize Class A Operations
+    description: >
+      Writes, deletes, and list operations cost 10x more than reads ($5/M vs
+      $0.50/M). Batch writes using the bulk API (up to 10,000 pairs per
+      request) to reduce the number of billable write operations.
+    actions:
+      - Use bulk write (PUT /bulk) instead of individual PUT per key
+      - Batch deletes using POST /bulk/delete
+      - Reduce unnecessary writes by checking if data has changed before writing
+
+  - principle: Reduce Unnecessary Reads
+    description: >
+      Reads are cheaper but still billable including null/404 responses.
+      Cache KV values in-memory within a Worker invocation to avoid redundant
+      reads within the same request lifecycle.
+    actions:
+      - Cache frequently-accessed KV values in Worker memory for the request duration
+      - Use getWithMetadata() only when metadata is actually needed
+      - Avoid speculative reads for keys that may not exist
+
+  - principle: Limit List Operations
+    description: >
+      List requests are Class A and charged at the same rate as writes.
+      Avoid frequent or unbounded list operations; maintain an index key if
+      enumeration is needed frequently.
+    actions:
+      - Avoid polling with list operations; use event-driven approaches instead
+      - Maintain a dedicated index key containing a serialized key directory
+      - Use prefix-filtered lists to reduce result sets
+
+  - principle: Use TTL Expiration for Ephemeral Data
+    description: >
+      Set TTL on short-lived keys so Cloudflare automatically expires them,
+      avoiding the need to issue (billable) delete operations.
+    actions:
+      - Set expirationTtl on session tokens, rate limit counters, and temporary flags
+      - Review keys with long TTLs and reduce storage footprint
+
+  - principle: Optimize Storage Usage
+    description: >
+      At $0.50/GB-month, storage is inexpensive but can accumulate. Use value
+      compression and clean up stale keys to reduce storage costs.
+    actions:
+      - Compress large JSON or text values before writing
+      - Implement a cleanup routine using bulk delete for orphaned keys
+      - Monitor namespace storage via the Cloudflare dashboard analytics
+
+  - principle: Stay Within Free Tier for Dev/Test
+    description: >
+      Development and staging workloads should target the Free tier limits
+      (100K reads/day, 1K writes/day) to incur zero KV costs.
+    actions:
+      - Use separate namespaces for dev, staging, and production
+      - Throttle synthetic test traffic to stay under daily Free limits
+
+monitoring:
+  - name: Cloudflare Dashboard Analytics
+    description: Per-account and per-namespace metrics for operations and storage.
+    url: https://dash.cloudflare.com/
+  - name: KV Analytics API
+    description: >
+      Cloudflare provides an analytics API with per-account and per-namespace
+      metrics including read/write latency and operation counts.
+    url: https://developers.cloudflare.com/api/resources/kv/
+
+alerts:
+  - name: Write operation spike
+    description: Alert when writes exceed 80% of monthly inclusion to avoid overage.
+    threshold: 800000
+    unit: writes per month
+    action: Review batch write patterns and reduce unnecessary writes.
+
+  - name: Storage growth
+    description: Alert when namespace storage approaches 1 GB inclusion boundary.
+    threshold: 0.9
+    unit: GB
+    action: Review and purge stale keys; consider value compression.
+
+  - name: Read overage approaching
+    description: Alert when monthly reads exceed 80% of 10M inclusion.
+    threshold: 8000000
+    unit: reads per month
+    action: Increase in-Worker caching and reduce redundant reads.

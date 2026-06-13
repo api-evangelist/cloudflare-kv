@@ -1,0 +1,100 @@
+specification: API Commons Plans
+specificationVersion: "0.1"
+name: Cloudflare KV Plans and Pricing
+description: >
+  Cloudflare Workers KV offers two service tiers — Free and Paid — covering
+  key read, write, delete, and list operations as well as storage. The Paid
+  plan requires an active Workers Paid subscription ($5/month base) and charges
+  per-operation beyond monthly inclusions. All limits reset daily (Free) or
+  monthly (Paid) at 00:00 UTC. There are no data transfer or egress fees.
+url: https://developers.cloudflare.com/kv/platform/pricing/
+plans:
+  - name: Free
+    description: >
+      Available on the Cloudflare Free plan. Daily operation limits apply;
+      all counters reset at 00:00 UTC. Suitable for development and low-traffic
+      workloads.
+    url: https://developers.cloudflare.com/kv/platform/pricing/
+    price: 0
+    priceCurrency: USD
+    billingCycle: daily
+    limits:
+      - name: Key reads
+        value: 100000
+        unit: reads
+        period: day
+      - name: Key writes
+        value: 1000
+        unit: writes
+        period: day
+      - name: Key deletes
+        value: 1000
+        unit: deletes
+        period: day
+      - name: List requests
+        value: 1000
+        unit: requests
+        period: day
+      - name: Storage
+        value: 1
+        unit: GB
+        period: account
+
+  - name: Paid
+    description: >
+      Available with a Workers Paid plan ($5/month). Provides higher monthly
+      inclusions and per-unit pricing beyond those inclusions. Operations are
+      billed on a per-key basis; unsuccessful reads (null/404) still count.
+      Dashboard and CLI operations count toward billable usage.
+    url: https://developers.cloudflare.com/kv/platform/pricing/
+    price: 5
+    priceCurrency: USD
+    billingCycle: monthly
+    pricingModel: pay-as-you-go
+    inclusions:
+      - name: Key reads included
+        value: 10000000
+        unit: reads
+        period: month
+      - name: Key writes included
+        value: 1000000
+        unit: writes
+        period: month
+      - name: Key deletes included
+        value: 1000000
+        unit: deletes
+        period: month
+      - name: List requests included
+        value: 1000000
+        unit: requests
+        period: month
+      - name: Storage included
+        value: 1
+        unit: GB
+        period: account
+    overagePricing:
+      - name: Additional key reads
+        price: 0.50
+        priceCurrency: USD
+        unit: per million reads
+      - name: Additional key writes
+        price: 5.00
+        priceCurrency: USD
+        unit: per million writes
+      - name: Additional key deletes
+        price: 5.00
+        priceCurrency: USD
+        unit: per million deletes
+      - name: Additional list requests
+        price: 5.00
+        priceCurrency: USD
+        unit: per million requests
+      - name: Additional storage
+        price: 0.50
+        priceCurrency: USD
+        unit: per GB-month
+notes:
+  - Bulk read operations are billed by the number of keys read, not by request.
+  - All operations (including unsuccessful ones returning null or 404) incur charges on the Paid plan.
+  - No data transfer or egress fees are charged.
+  - The Workers Paid base fee ($5/month) covers 10M Worker requests and 30M CPU-ms; KV charges are additive.
