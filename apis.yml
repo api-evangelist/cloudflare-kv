@@ -10,7 +10,7 @@ description: >
   latencies under 5ms, and is accessible both via Workers bindings and external
   REST API calls.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/cloudflare-kv/refs/heads/main/apis.yml
 created: 2026-06-13
 modified: 2026-06-13
@@ -33,7 +33,7 @@ apis:
       value reads and writes, bulk operations (up to 10,000 pairs), bulk
       deletes, and key metadata retrieval. All requests are authenticated with
       a Bearer API token scoped to the target account.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developers.cloudflare.com/kv/
     baseURL: https://api.cloudflare.com/client/v4
     tags:
