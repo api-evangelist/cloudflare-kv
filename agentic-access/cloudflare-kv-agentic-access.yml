@@ -1,0 +1,210 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/cloudflare-kv-rest-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 14
+  by_action_class:
+    connected: 5
+    acting: 9
+  by_consequence:
+    read: 5
+    write: 9
+  human_in_the_loop_required: 0
+operations:
+- path: /accounts/{account_id}/storage/kv/namespaces
+  method: get
+  operationId: workers-kv-namespace-list-namespaces
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /accounts/{account_id}/storage/kv/namespaces
+  method: post
+  operationId: workers-kv-namespace-create-a-namespace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}
+  method: delete
+  operationId: workers-kv-namespace-remove-a-namespace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}
+  method: get
+  operationId: workers-kv-namespace-get-a-namespace
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}
+  method: put
+  operationId: workers-kv-namespace-rename-a-namespace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk
+  method: delete
+  operationId: workers-kv-namespace-delete-multiple-key-value-pairs-deprecated
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk
+  method: put
+  operationId: workers-kv-namespace-write-multiple-key-value-pairs
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete
+  method: post
+  operationId: workers-kv-namespace-delete-multiple-key-value-pairs
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get
+  method: post
+  operationId: workers-kv-namespace-get-multiple-key-value-pairs
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys
+  method: get
+  operationId: workers-kv-namespace-list-a-namespace'-s-keys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}
+  method: get
+  operationId: workers-kv-namespace-read-the-metadata-for-a-key
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}
+  method: delete
+  operationId: workers-kv-namespace-delete-key-value-pair
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}
+  method: get
+  operationId: workers-kv-namespace-read-key-value-pair
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}
+  method: put
+  operationId: workers-kv-namespace-write-key-value-pair-with-metadata
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
