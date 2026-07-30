@@ -10,7 +10,19 @@ description: >
   latencies under 5ms, and is accessible both via Workers bindings and external
   REST API calls.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cloudflare-kv.png
 url: https://raw.githubusercontent.com/api-evangelist/cloudflare-kv/refs/heads/main/apis.yml
 created: 2026-06-13
 modified: 2026-06-13
@@ -24,30 +36,19 @@ tags:
   - Cache
   - Configuration Management
 apis:
-  - aid: cloudflare-kv:cloudflare-kv-rest-api
-    name: Cloudflare KV REST API
-    description: >
-      The Cloudflare KV REST API provides external application access to
-      Workers KV namespaces and key-value pairs. Endpoints cover namespace
-      management (create, list, rename, delete), key enumeration, individual
-      value reads and writes, bulk operations (up to 10,000 pairs), bulk
-      deletes, and key metadata retrieval. All requests are authenticated with
-      a Bearer API token scoped to the target account.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://developers.cloudflare.com/kv/
-    baseURL: https://api.cloudflare.com/client/v4
-    tags:
-      - Key-Value Store
-      - Namespaces
-      - Bulk Operations
-      - Edge Storage
-    properties:
-      - type: Documentation
-        url: https://developers.cloudflare.com/kv/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml
-      - type: OpenAPI
-        url: openapi/cloudflare-kv-rest-api-openapi.yml
+- aid: cloudflare-kv:cloudflare-kv-workers-kv-namespace-api
+  name: Cloudflare KV Workers KV Namespace API
+  description: >-
+    The Workers KV Namespace API from Cloudflare KV — 8 operation(s) for workers kv namespace.
+  humanURL: https://developers.cloudflare.com/kv/
+  baseURL: https://api.cloudflare.com/client/v4
+  tags:
+  - Workers KV Namespace
+  properties:
+  - type: OpenAPI
+    url: openapi/cloudflare-kv-workers-kv-namespace-api-openapi.yml
+  - type: Documentation
+    url: https://developers.cloudflare.com/kv/
 common:
   - type: AgenticAccess
     url: agentic-access/cloudflare-kv-agentic-access.yml
