@@ -1,0 +1,14 @@
+{
+  "provider": "cloudflare-kv",
+  "sources": [
+    "cloudflare-kv-workers-kv-namespace-api-openapi.yml"
+  ],
+  "outputs": [
+    "cloudflare-kv-workers-kv-namespace-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
