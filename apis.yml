@@ -50,6 +50,15 @@ apis:
   - type: Documentation
     url: https://developers.cloudflare.com/kv/
 common:
+  - type: IssueTracker
+    url: https://github.com/cloudflare/api-schemas/issues
+  - type: CodeOfConduct
+    url: https://github.com/cloudflare/.github/blob/master/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/cloudflare/.github/blob/master/CONTRIBUTING.md
+  - type: License
+    name: BSD-3-Clause
+    url: https://github.com/cloudflare/api-schemas/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/cloudflare-kv-agentic-access.yml
   - type: VulnerabilityDisclosure
