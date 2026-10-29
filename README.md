@@ -66,33 +66,166 @@
 
 Cloudflare Workers KV is a globally distributed key-value store that allows developers to store and retrieve data at low latency from Cloudflare's edge network. It provides a REST API for reading, writing, deleting, and listing key-value pairs across namespaces, making it ideal for caching, configuration management, session storage, API authorization, and dynamic routing. KV supports eventual consistency across Cloudflare's global network with read latencies under 5ms, and is accessible both via Workers bindings and external REST API calls.
 
-## Links
+**Areas:** Key-Value Store · Edge Computing · Cloudflare Workers · Distributed Storage · Global Database · Cache · Configuration Management
+
+## Cloudflare KV on APIs.io
+
+Everything profiled for Cloudflare KV is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cloudflare-kv/](https://apis.io/providers/cloudflare-kv/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Cloudflare KV Workers KV Namespace API](https://apis.io/apis/cloudflare-kv/cloudflare-kv-workers-kv-namespace-api/) — The Workers KV Namespace API from Cloudflare KV — 8 operation(s) for workers kv namespace.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Cloudflare Kv Agentic Access](https://apis.io/agentic-access/cloudflare-kv/cloudflare-kv-agentic-access/)
+
+#### JSON Schema (27)
+
+The data models the API reads and writes.
+
+- [Any](https://apis.io/schemas/cloudflare-kv/workers-kv_any/)
+- [Api Response Collection](https://apis.io/schemas/cloudflare-kv/workers-kv_api-response-collection/)
+- [Api Response Common](https://apis.io/schemas/cloudflare-kv/workers-kv_api-response-common/)
+- [Api Response Common Failure](https://apis.io/schemas/cloudflare-kv/workers-kv_api-response-common-failure/)
+- [Api Response Common No Result](https://apis.io/schemas/cloudflare-kv/workers-kv_api-response-common-no-result/)
+- [Bulk Get Result](https://apis.io/schemas/cloudflare-kv/workers-kv_bulk-get-result/)
+- [Bulk Get Result With Metadata](https://apis.io/schemas/cloudflare-kv/workers-kv_bulk-get-result-with-metadata/)
+- [Bulk Result](https://apis.io/schemas/cloudflare-kv/workers-kv_bulk-result/)
+- [Bulk Delete](https://apis.io/schemas/cloudflare-kv/workers-kv_bulk_delete/)
+- [Bulk Write](https://apis.io/schemas/cloudflare-kv/workers-kv_bulk_write/)
+- [Create Rename Namespace Body](https://apis.io/schemas/cloudflare-kv/workers-kv_create_rename_namespace_body/)
+- [Cursor](https://apis.io/schemas/cloudflare-kv/workers-kv_cursor/)
+- [Cursor Result Info](https://apis.io/schemas/cloudflare-kv/workers-kv_cursor_result_info/)
+- [Expiration](https://apis.io/schemas/cloudflare-kv/workers-kv_expiration/)
+- [Expiration Ttl](https://apis.io/schemas/cloudflare-kv/workers-kv_expiration_ttl/)
+- [Identifier](https://apis.io/schemas/cloudflare-kv/workers-kv_identifier/)
+- [Key](https://apis.io/schemas/cloudflare-kv/workers-kv_key/)
+- [Key Name](https://apis.io/schemas/cloudflare-kv/workers-kv_key_name/)
+- [Key Name Bulk](https://apis.io/schemas/cloudflare-kv/workers-kv_key_name_bulk/)
+- [List Metadata](https://apis.io/schemas/cloudflare-kv/workers-kv_list_metadata/)
+- [Messages](https://apis.io/schemas/cloudflare-kv/workers-kv_messages/)
+- [Metadata](https://apis.io/schemas/cloudflare-kv/workers-kv_metadata/)
+- [Namespace](https://apis.io/schemas/cloudflare-kv/workers-kv_namespace/)
+- [Namespace Identifier](https://apis.io/schemas/cloudflare-kv/workers-kv_namespace_identifier/)
+- [Namespace Title](https://apis.io/schemas/cloudflare-kv/workers-kv_namespace_title/)
+- …and 2 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Cloudflare Kv Context](https://apis.io/jsonld/cloudflare-kv/cloudflare-kv-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Cloudflare Workers KV Vocabulary](https://apis.io/vocabularies/cloudflare-kv/cloudflare-kv-vocabulary/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Cloudflare Workers KV Workers KV Namespace API](https://apis.io/collections/cloudflare-kv/open-cloudflare-kv-workers-kv-namespace-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Cloudflare KV — jsonschema rules](https://apis.io/rules/cloudflare-kv/cloudflare-kv-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Cloudflare Kv Domain Security](https://apis.io/security/cloudflare-kv/cloudflare-kv-domain-security/)
+- [Cloudflare Kv Vulnerability Disclosure](https://apis.io/security/cloudflare-kv/cloudflare-kv-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Cloudflare Kv Plans Pricing](https://apis.io/plans/cloudflare-kv/cloudflare-kv-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Cloudflare Kv Rate Limits](https://apis.io/rate-limits/cloudflare-kv/cloudflare-kv-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Cloudflare Kv Finops](https://apis.io/finops/cloudflare-kv/cloudflare-kv-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.cloudflare.com/products/kv/)
 - [Documentation](https://developers.cloudflare.com/kv/)
-- [Getting Started](https://developers.cloudflare.com/kv/get-started/)
-- [REST API Reference](https://developers.cloudflare.com/api/resources/kv/)
-- [OpenAPI Schema](https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml)
+- [Getting started](https://developers.cloudflare.com/kv/get-started/)
 - [Pricing](https://developers.cloudflare.com/kv/platform/pricing/)
-- [Limits](https://developers.cloudflare.com/kv/platform/limits/)
-- [Release Notes](https://developers.cloudflare.com/kv/platform/release-notes/)
-- [Status Page](https://www.cloudflarestatus.com/)
 - [Blog](https://blog.cloudflare.com/)
-- [GitHub Org](https://github.com/cloudflare)
-- [LinkedIn](https://www.linkedin.com/company/cloudflare/)
-- [X](https://x.com/Cloudflare)
+- [Status](https://www.cloudflarestatus.com/)
 
-## SDKs
+## API Evangelist rating
 
-- [TypeScript SDK](https://github.com/cloudflare/cloudflare-typescript)
-- [Python SDK](https://github.com/cloudflare/cloudflare-python)
-- [Go SDK](https://github.com/cloudflare/cloudflare-go)
+**Kin Score 34.7** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## APIs.json
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 52.6 |
+| Contract governance | 9.8 |
+| Operational transparency | 44.7 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 15.8 |
 
-This repository is an [APIs.json](https://apisjson.org/) provider profile for Cloudflare KV maintained by [API Evangelist](https://apievangelist.com/).
+**Agent readiness 21.1** — agent-aware
 
-- [apis.yml](apis.yml)
-- [Plans and Pricing](plans/cloudflare-kv-plans-pricing.yml)
-- [Rate Limits](rate-limits/cloudflare-kv-rate-limits.yml)
-- [FinOps](finops/cloudflare-kv-finops.yml)
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cloudflare-kv/](https://apis.io/providers/cloudflare-kv/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cloudflare KV: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cloudflare-kv/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
